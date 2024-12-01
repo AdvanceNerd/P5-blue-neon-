@@ -1,0 +1,413 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0b0c1f 0%, #1a1a2e 100%);
+    color: #e0e0e0; /* Light gray text */
+    overflow-x: hidden;
+    height: 100%; /* Full height for sticky behavior */
+}
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0;
+    background-color: #1c1c2e; /* Dark navbar background */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.5); /* Neon blue glow shadow */
+    animation: slideDown 0.5s ease; /* Slide down animation */
+}
+
+/* Slide down animation for navbar */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Change navbar background on scroll */
+body.scrolled .navbar {
+    background-color: #29293e; /* Slightly lighter dark */
+}
+
+/* Navbar links */
+.navbar a {
+    text-decoration: none;
+    color: #00ffff; /* Neon blue text */
+    padding: 12px 30px;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+    border: 2px solid transparent;
+}
+
+.navbar a:hover {
+    background-color: rgba(0, 255, 255, 0.8); /* Semi-transparent neon blue */
+    color: #ffffff; /* White text */
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+}
+
+/* Section Styles */
+.section {
+    padding: 100px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #1e1e2e 0%, #2a2a3e 100%);
+    margin: 40px auto;
+    width: 80%;
+    border-radius: 25px;
+    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.6); /* Softer shadow */
+    opacity: 0;
+    transform: translateY(50px); /* Elements come from below */
+    transition: opacity 0.6s, transform 0.6s ease-out;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0); /* Move to normal position */
+}
+
+/* Carousel Styles */
+.carousel {
+    position: relative;
+    width: 80%;
+    margin: 30px auto;
+    overflow: hidden;
+    border: 5px solid rgba(0, 255, 255, 0.8); /* Glowy neon blue border */
+    border-radius: 25px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+    animation: floatUpDown 3s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 20px;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.slide img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    filter: brightness(1.1); /* Brighten image on hover */
+}
+
+/* Buttons for carousel */
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    /* transform: translateY(-50%); */
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0 .8), rgba(0, 255, 255, 0.6));
+    border: none;
+    color: #0a2d63;
+    font-size: 25px;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+button.prev:hover, button.next:hover {
+    background: linear-gradient(135deg, #00cccc, #00b3b3);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.9);
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+/* Title and text color */
+h1, h2 {
+    color: #00ffff; /* Neon blue for headings */
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 20px 0;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    animation: fadeIn 1s ease; /* Fade-in animation for headings */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+p {
+    color: #cccccc; /* Light gray text */
+    font-size: 1.2rem; /* Larger paragraph text */
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: justify;
+}
+
+/* Footer */
+footer {
+    background-color: #1c1c2e;
+    border-radius: 25px 25px 0 0;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 -2px 20px rgba(0, 255, 255, 0.5);
+    animation: slideUp 0.5s ease; /* Slide up animation for footer */
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Adds spacing between elements inside the container */
+}
+
+.footer-social {
+    display: flex; /* Ensures social links are arranged horizontally */
+    gap: 15px; /* Adds spacing between the social links */
+    justify-content: center; /* Centers the social links within the footer */
+}
+
+.footer-social a {
+    text-decoration: none;
+    color: #00ffff;
+    border: 2px solid #00ffff;
+    padding: 10px 15px;
+    border-radius: 25px; /* More rounded corners */
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-social a:hover {
+    transform: scale(1.1); /* Slight enlarge on hover */
+    background-color: rgba(0, 255, 255, 0.8);
+    color: #ffffff;
+}
+
+
+
+/* Additional Button Styles */
+.button {
+    background-color: #00ffff; /* Neon blue button */
+    color: #000000; /* Black text */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    background-color: rgba(0, 255, 255, 0.8);
+    transform: scale(1.05);
+}
+
+/* Card Styles */
+.card {
+    background-color: #1e1e2e;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 255, 255, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 255, 255, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        padding: 10px;
+        gap: 8px;
+    };
+    .navbar a {
+        padding: 8px 15px; /* Smaller padding for mobile */
+        font-size: 14px; /* Smaller font size for mobile */
+        border-radius: 20px; /* Adjust rounded corners for mobile */
+    }
+
+    .section {
+        width: 90%; /* Wider sections on mobile */
+        padding: 50px 10px; /* Reduce padding */
+    }
+
+    h1, h2 {
+        font-size: 1.5rem; /* Smaller headings */
+    }
+
+    p {
+        font-size: 1rem; /* Smaller text */
+    }
+
+    .button {
+        width: 100%; /* Full width buttons on mobile */
+        font-size: 16px; /* Smaller button text */
+    }
+
+    .card {
+        width: 90%; /* Wider cards on mobile */
+        margin: 10px auto; /* Center cards */
+    }
+}
+
+@keyframes loading {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.loading {
+    animation: loading 3s infinite; 
+}
+/* Navbar Styles */
+.navbar {
+    position: fixed; /* Make the navbar stay at the top */
+    top: 0;          /* Stick to the top of the viewport */
+    left: 0;
+    width: 100%;     /* Full width of the screen */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 10px 0;
+    background-color: #1c1c2e; /* Background color for visibility */
+    z-index: 1000;  /* Ensure it stays above other elements */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+}
+
+
+
+
+/* testing */
+/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1c1c2e;
+    z-index: 1000;
+    transform: translateY(0); /* Default position */
+    visibility: visible; /* Default visibility */
+    transition: transform 0.5s ease, visibility 0.5s ease; /* Smooth transition */
+}
+
+/* Hidden Navbar */
+.navbar.hidden {
+    transform: translateY(-100%); /* Slide out */
+    visibility: hidden; /* Fully hide */
+}
+
+/* Visible Navbar */
+.navbar.visible {
+    transform: translateY(0); /* Slide in */
+    visibility: visible; /* Fully visible */
+}
+
+/* Toggle Button Styling */
+#toggle-navbar {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #00ffff;
+    color: #000000;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.7);
+    cursor: pointer;
+    z-index: 1101;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+#toggle-navbar:hover {
+    background-color: rgba(0, 255, 255, 0.8);
+    transform: scale(1.1);
+}
+
+/* Arrow Icons */
+.arrow-up i {
+    transform: rotate(0deg);
+}
+
+.arrow-down i {
+    transform: rotate(180deg);
+}
+@media (max-width: 768px) {
+    #toggle-navbar {
+        width: 40px; /* Smaller button size */
+        height: 40px;
+        top: 5px;    /* Adjust position slightly */
+        right: 5px;
+        font-size: 14px; /* Smaller icon size */
+    }
+}
+
+
+
+
+
+
+   
